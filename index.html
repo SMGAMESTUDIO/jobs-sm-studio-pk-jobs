@@ -3,6 +3,424 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs SM Studio - Daily Job Updates</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="watermark">JOBS SM STUDIO</div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Jobs SM Studio Logo">
+            </div>
+            <nav>
+                <h1>Jobs SM Studio</h1>
+            </nav>
+            <div class="theme-switcher">
+                <button id="theme-toggle">Toggle Dark/Light Mode</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Latest Jobs</h2>
+        <div class="jobs-list">
+            <!-- Job Card Example 1 -->
+            <div class="job-card">
+                <h3>Job Title Goes Here (Example)</h3>
+                <p><strong>Company:</strong> Company Name</p>
+                <p><strong>Location:</strong> City, Country</p>
+                <p><strong>Description:</strong> Yahan job ki mukhtasar tafseel likhein. Yeh ek misaal hai taake aap dekh sakein ke job posting kaisi lagegi.</p>
+                <a href="#" class="apply-btn">View Details / Apply</a>
+            </div>
+
+            <!-- Job Card Example 2 -->
+            <div class="job-card">
+                <h3>Another Job Position (Example)</h3>
+                <p><strong>Company:</strong> Another Company</p>
+                <p><strong>Location:</strong> Another City, Country</p>
+                <p><strong>Description:</strong> Yahan doosri job ki mukhtasar tafseel likhein. Aap is structure ko copy karke new jobs add kar sakte hain.</p>
+                <a href="#" class="apply-btn">View Details / Apply</a>
+            </div>
+            
+            <!-- Add more job cards here -->
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="contact.html" target="_blank">Contact</a>
+                <a href="about.html" target="_blank">About</a>
+                <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
+                <a href="disclaimer.html" target="_blank">Disclaimer</a>
+                <a href="terms.html" target="_blank">Terms</a>
+                <a href="copyright.html" target="_blank">Copyright</a>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Jobs SM Studio. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+/* Basic Styles & Light Mode */
+:root {
+    --background-color: #f4f4f9;
+    --text-color: #333;
+    --card-bg-color: #ffffff;
+    --header-footer-bg: #e2e2e2;
+    --border-color: #ddd;
+    --primary-color: #007bff;
+    --primary-text-color: #ffffff;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --background-color: #333;
+    --text-color: #f4f4f9;
+    --card-bg-color: #444;
+    --header-footer-bg: #222;
+    --border-color: #555;
+    --primary-color: #4da3ff;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+    position: relative;
+}
+
+.watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8vw;
+    font-weight: bold;
+    color: var(--text-color);
+    opacity: 0.05;
+    z-index: -1;
+    pointer-events: none;
+    user-select: none;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: var(--header-footer-bg);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+#theme-toggle {
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#theme-toggle:hover {
+    opacity: 0.9;
+}
+
+main {
+    padding: 20px 0;
+}
+
+main h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.jobs-list {
+    display: grid;
+    gap: 20px;
+}
+
+.job-card {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.job-card h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.apply-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.apply-btn:hover {
+    opacity: 0.9;
+}
+
+footer {
+    background-color: var(--header-footer-bg);
+    color: var(--text-color);
+    padding: 20px 0;
+    margin-top: 30px;
+    border-top: 1px solid var(--border-color);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.copyright p {
+    margin: 0;
+    text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-links {
+        margin-bottom: 10px;
+    }
+    .copyright p {
+        text-align: center;
+    }
+    header .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme) {
+        document.body.classList.add(currentTheme);
+    }
+
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        
+        let theme = 'light-mode';
+        if (document.body.classList.contains('dark-mode')) {
+            theme = 'dark-mode';
+        }
+        localStorage.setItem('theme', theme);
+    });
+});
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Jobs SM Studio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <h1>Contact Us</h1>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <h2>Humse Rabta Karein</h2>
+        <div class="job-card">
+            <p>Agar aapke paas koi sawal hai ya aap humse rabta karna chahte hain, to neeche di gayi maloomat istemal karein:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:smgamingstudioofficial@gmail.com">smgamingstudioofficial@gmail.com</a></li>
+                <li><strong>Facebook Page:</strong> <a href="https://www.facebook.com/profile.php?id=61562791829397&mibextid=ZbWKwL" target="_blank">SM STUDIO</a></li>
+                <li><strong>WhatsApp Channel:</strong> <a href="https://whatsapp.com/channel/0029VatDb1RADTO5NQU47k45" target="_blank">Join our WhatsApp Channel</a></li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <div class="container copyright">
+            <p>© 2025 Jobs SM Studio. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Jobs SM Studio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <h1>About Us</h1>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <h2>Hamare Bare Mein</h2>
+        <div class="job-card">
+            <p>Jobs SM Studio ek platform hai jahan hum rozana Pakistan aur duniya bhar se jobs ki maloomat faraham karte hain. Hamara maqsad logon ko behtareen mawaqe talash karne mein madad karna hai.</p>
+        </div>
+    </main>
+    <footer>
+        <div class="container copyright">
+            <p>© 2025 Jobs SM Studio. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Jobs SM Studio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <h1>Privacy Policy</h1>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <h2>Privacy Policy</h2>
+        <div class="job-card">
+            <p>Yahan aap apni website ki privacy policy ki tafseelat likh sakte hain. Batayein ke aap user ka data kaise istemal karte hain.</p>
+        </div>
+    </main>
+    <footer>
+        <div class="container copyright">
+            <p>© 2025 Jobs SM Studio. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer - Jobs SM Studio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <h1>Disclaimer</h1>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <h2>Disclaimer</h2>
+        <div class="job-card">
+            <p>Yahan aap apni website ka disclaimer likhein. Batayein ke di gayi maloomat ki durusti ki aap kitni zimmedari lete hain.</p>
+        </div>
+    </main>
+    <footer>
+        <div class="container copyright">
+            <p>© 2025 Jobs SM Studio. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - Jobs SM Studio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <h1>Terms & Conditions</h1>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <h2>Sharayit o Zawabit</h2>
+        <div class="job-card">
+            <p>Yahan aap apni website ke istemal ke sharayit o zawabit likh sakte hain.</p>
+        </div>
+    </main>
+    <footer>
+        <div class="container copyright">
+            <p>© 2025 Jobs SM Studio. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Copyright - Jobs SM Studio</title>
     <link rel="stylesheet" href="style.css">
 </head>
