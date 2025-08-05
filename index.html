@@ -28,41 +28,17 @@
       color: var(--text-dark);
     }
 
-    body::after {
-      content: 'JOBS SM STUDIO';
+    .toggle-btn {
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 4rem;
-      font-weight: 900;
-      color: rgba(0, 0, 0, 0.03);
-      pointer-events: none;
-      z-index: 0;
-      text-align: center;
-      width: 100%;
-    }
-
-    body.dark-mode::after {
-      color: rgba(255, 255, 255, 0.03);
-    }
-
-    .container {
-      position: relative;
-      z-index: 1;
-      padding: 30px 15px;
-      text-align: center;
-    }
-
-    .logo {
-      width: 120px;
-      height: auto;
-      margin-bottom: 20px;
+      top: 15px;
+      right: 15px;
+      z-index: 999;
     }
 
     nav {
       background-color: #e9ecef;
       padding: 10px 0;
+      text-align: center;
     }
 
     body.dark-mode nav {
@@ -80,11 +56,10 @@
       text-decoration: underline;
     }
 
-    .toggle-btn {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      z-index: 2;
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px 15px;
     }
 
     .footer {
@@ -94,30 +69,13 @@
       text-align: center;
       margin-top: 40px;
     }
-
-    .article {
-      text-align: left;
-      max-width: 900px;
-      margin: 0 auto;
-      padding-top: 20px;
-      padding-bottom: 40px;
-    }
-
-    h2 {
-      margin-top: 40px;
-    }
   </style>
 </head>
 <body>
 
   <button class="btn btn-secondary toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
 
-  <div class="container">
-    <img src="Logo.png" alt="Logo" class="logo" />
-    <h1>Privacy Policy</h1>
-  </div>
-
-  <nav class="text-center">
+  <nav>
     <a href="index.html">Home</a>
     <a href="jobs.html">Latest Jobs</a>
     <a href="about.html">About</a>
@@ -128,91 +86,12 @@
     <a href="copyright.html">Copyright</a>
   </nav>
 
-  <div class="article px-3">
-    <h2>Your Privacy Matters</h2>
-    <p>
-      At Jobs SM Studio, we are committed to protecting your privacy. This Privacy Policy explains what information we collect, how we use it, and your choices regarding your data.
-    </p>
-
-    <h3>1. Information We Collect</h3>
-    <ul>
-      <li>Basic website analytics (e.g., IP address, browser type)</li>
-      <li>Information you submit through forms (name, email, resume, etc.)</li>
-    </ul>
-
-    <h3>2. How We Use Your Information</h3>
-    <ul>
-      <li>To improve our website experience</li>
-      <li>To respond to your inquiries and process job applications</li>
-    </ul>
-
-    <h3>3. Third-Party Tools</h3>
-    <p>
-      We use tools like Google Analytics for website traffic analysis. These tools may collect cookies, but no personal data is sold or shared.
-    </p>
-
-    <h3>4. Your Consent</h3>
-    <p>
-      By using our site, you consent to our privacy policy and terms.
-    </p>
-
-    <h3>5. Contact Us</h3>
-    <p>
-      If you have any questions about this privacy policy, you can contact us at: <br>
-      <strong>hr.majma@dawatkhi.com</strong>
-    </p>
-
-    <h2>1000-Word Article Summary</h2>
-    <p>
-      Jobs SM Studio is a platform dedicated to simplifying the job-seeking journey in Pakistan. Every day, countless job seekers face challenges finding verified and updated job listings. That's where we come in. Our mission is to ensure that job seekers — whether fresh graduates, students, or experienced professionals — get access to trusted opportunities.
-
-      From government departments to private companies and remote work, our curated content saves you time and builds confidence in your career choices. With daily updates, an intuitive layout, and a commitment to transparency, Jobs SM Studio stands out as a reliable companion on your job hunt.
-
-      We respect your privacy and promise to only collect necessary data to make your browsing experience smoother and more efficient. Join thousands of Pakistanis who trust us every day. Start exploring now!
-    </p>
-  </div>
-
-  <div class="footer">
-    &copy; 2025 Jobs SM Studio. All Rights Reserved.
-  </div>
-
-  <script>
-    function toggleTheme() {
-      document.body.classList.toggle('dark-mode');
-    }
-  </script>
-
-</body>
-</html>  <div class="container">
-    <img src="Logo.png" alt="Logo" class="logo" />
-    <h1>Welcome to Jobs SM Studio</h1>
-    <p>Your trusted source for daily government and private jobs in Pakistan.</p>
-  </div>
-
-  <nav class="text-center">
-    <a href="jobs.html">Latest Jobs</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="privacy-policy.html">Privacy Policy</a>
-    <a href="disclaimer.html">Disclaimer</a>
-    <a href="terms.html">Terms</a>
-    <a href="copyright.html">Copyright</a>
-  </nav>
-
-  <div class="article px-3">
-    <h2>Why Choose Jobs SM Studio?</h2>
-    <p>
-      Jobs SM Studio is your all-in-one platform for daily job updates, covering both the public and private sectors of Pakistan.
-      In a digital world filled with scattered and outdated information, our goal is to simplify the job hunt.
-    </p>
-
-    <p>
-      Whether you're looking for government jobs, private company openings, or remote work opportunities, Jobs SM Studio delivers verified listings every day.
-    </p>
-
-    <p>
-      Our website is designed for everyone — students, fresh graduates, experienced professionals, and career changers.
-    </p>
+  <div class="container">
+    <h1>Privacy Policy</h1>
+    <p>Your privacy is important to us. We only collect necessary user data for improving your experience. No data is sold or shared without consent.</p>
+    <p>Any information shared with us via contact or job application forms is kept confidential and used solely for the intended purpose.</p>
+    <p>We use basic analytics to monitor website performance and ensure that users are receiving the best service.</p>
+    <p>By continuing to use our site, you agree to the use of cookies and basic information like IP and browser data. We do not collect personal data unless explicitly submitted by the user.</p>
   </div>
 
   <div class="footer">
@@ -224,6 +103,5 @@
       document.body.classList.toggle('dark-mode');
     }
   </script>
-
 </body>
 </html>
