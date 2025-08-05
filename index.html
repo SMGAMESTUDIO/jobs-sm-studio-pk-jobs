@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jobs SM Studio - Daily Job Updates</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Naye Design ka CSS Code Start -->
+    <!-- CSS Code -->
     <style>
         /* Light Mode Variables */
         :root {
@@ -20,7 +20,6 @@
             --primary-hover: #0052a3;
             --border-color: #dddfe2;
             --shadow-color: rgba(0, 0, 0, 0.1);
-            --font-family-ur: 'Noto Nastaliq Urdu', serif;
             --font-family-en: 'Roboto', sans-serif;
         }
 
@@ -101,15 +100,16 @@
             background: none;
             border: 1px solid var(--border-color);
             color: var(--text-color);
-            padding: 8px 12px;
+            padding: 8px 16px;
             cursor: pointer;
             border-radius: 20px;
             font-size: 0.9em;
+            font-weight: 500;
             transition: background-color 0.3s, border-color 0.3s;
         }
-        body:not(.dark-mode) #theme-toggle::before { content: '🌙'; margin-right: 5px; }
-        body.dark-mode #theme-toggle::before { content: '☀️'; margin-right: 5px; }
-
+        
+        body:not(.dark-mode) #theme-toggle::before { content: '🌙'; margin-right: 8px; }
+        body.dark-mode #theme-toggle::before { content: '☀️'; margin-right: 8px; }
 
         #theme-toggle:hover {
             background-color: var(--bg-color);
@@ -121,10 +121,10 @@
         
         .main-title {
             text-align: center;
-            font-family: var(--font-family-ur);
             font-size: 2.5em;
             font-weight: 700;
             margin-bottom: 30px;
+            color: var(--primary-color);
         }
 
         .jobs-list {
@@ -149,19 +149,17 @@
         .job-card h3 {
             margin-top: 0;
             font-size: 1.5em;
-            color: var(--primary-color);
-            font-family: var(--font-family-en);
+            color: var(--text-color);
             font-weight: 700;
         }
         
         .job-card p {
             line-height: 1.7;
+            margin-bottom: 10px;
         }
         
-        .job-card .description {
-            font-family: var(--font-family-ur);
-            font-size: 1.2em;
-            direction: rtl;
+        .job-card strong {
+            color: var(--primary-color);
         }
 
         .apply-btn {
@@ -212,7 +210,6 @@
             opacity: 0.7;
         }
     </style>
-    <!-- CSS Code End -->
 </head>
 <body>
 
@@ -224,12 +221,12 @@
                 <img src="logo.png" alt="Jobs SM Studio Logo">
                 <h1>Jobs SM Studio</h1>
             </div>
-            <button id="theme-toggle">Mode</button>
+            <button id="theme-toggle">Dark Mode</button>
         </div>
     </header>
 
     <main class="container">
-        <h2 class="main-title">تازہ ترین نوکریاں</h2>
+        <h2 class="main-title">Latest Jobs</h2>
         <div class="jobs-list">
             
             <!-- Job Card Example 1 -->
@@ -237,7 +234,7 @@
                 <h3>Job Title Goes Here (Example)</h3>
                 <p><strong>Company:</strong> Company Name</p>
                 <p><strong>Location:</strong> City, Country</p>
-                <p class="description">یہاں جاب کی تفصیلی معلومات اردو میں لکھیں۔ یہ ایک مثال ہے تاکہ آپ دیکھ سکیں کہ جاب پوسٹنگ کیسی لگے گی۔ آپ اپنی ضرورت کے مطابق اس میں تبدیلی کر سکتے ہیں۔</p>
+                <p><strong>Description:</strong> This is where the detailed job description will go. This is an example to show how the job posting will look. You can modify it according to your needs.</p>
                 <a href="#" class="apply-btn">View Details / Apply</a>
             </div>
 
@@ -245,12 +242,12 @@
             <div class="job-card">
                 <h3>Another Job Position (Example)</h3>
                 <p><strong>Company:</strong> Another Company</p>
-                <p><strong>Location:</strong> Another City</p>
-                <p class="description">یہاں دوسری جاب کی تفصیلات فراہم کریں۔ اس سٹرکچر کو کاپی کر کے آپ جتنی چاہیں نئی جابز شامل کر سکتے ہیں۔</p>
+                <p><strong>Location:</strong> Another City, Country</p>
+                <p><strong>Description:</strong> Provide the details for the second job here. You can copy this structure to add as many new jobs as you want.</p>
                 <a href="#" class="apply-btn">View Details / Apply</a>
             </div>
             
-            <!-- Nayi Jobs Add Karne Ke Liye Yahan Code Paste Karein -->
+            <!-- Add new job cards here -->
 
         </div>
     </main>
@@ -275,17 +272,14 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const themeToggle = document.getElementById('theme-toggle');
-            const toggleText = document.querySelector('#theme-toggle');
 
-            // Function to set the theme
             const setTheme = (theme) => {
                 document.body.classList.remove('dark-mode', 'light-mode');
                 document.body.classList.add(theme);
                 localStorage.setItem('theme', theme);
-                toggleText.textContent = theme === 'dark-mode' ? 'Light Mode' : 'Dark Mode';
+                themeToggle.textContent = theme === 'dark-mode' ? 'Light Mode' : 'Dark Mode';
             };
 
-            // Check for saved theme
             const currentTheme = localStorage.getItem('theme');
             if (currentTheme) {
                 setTheme(currentTheme);
@@ -293,7 +287,6 @@
                 setTheme('light-mode'); // Default theme
             }
 
-            // Toggle theme on button click
             themeToggle.addEventListener('click', () => {
                 const newTheme = document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode';
                 setTheme(newTheme);
