@@ -4,123 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jobs SM Studio - Find Your Dream Job</title>
+    <!-- Google Fonts for Professional Look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* CSS Variables for theming */
         :root {
-            --primary-color: #ffffff;
-            --secondary-color: #f4f4f9;
-            --text-color: #333333;
-            --header-bg: #ffffff;
-            --footer-bg: #333333;
-            --footer-text-color: #ffffff;
+            --bg-color: #f8f9fa;
+            --secondary-bg: #ffffff;
+            --text-color: #212529;
+            --heading-color: #000;
             --link-color: #007bff;
-            --watermark-color: rgba(0, 0, 0, 0.05);
-            --border-color: #dddddd;
-            --switch-bg: #ccc;
-            --switch-slider: white;
+            --link-hover-color: #0056b3;
+            --border-color: #dee2e6;
+            --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            --watermark-color: rgba(0, 0, 0, 0.04);
+            --header-bg: rgba(255, 255, 255, 0.8);
         }
 
         body.dark-mode {
-            --primary-color: #121212;
-            --secondary-color: #1e1e1e;
+            --bg-color: #121212;
+            --secondary-bg: #1e1e1e;
             --text-color: #e0e0e0;
-            --header-bg: #1e1e1e;
-            --footer-bg: #1e1e1e;
-            --footer-text-color: #e0e0e0;
+            --heading-color: #ffffff;
             --link-color: #4dabf7;
+            --link-hover-color: #8ec9f9;
+            --border-color: #444;
+            --card-shadow: 0 4px 8px rgba(0,0,0,0.4);
             --watermark-color: rgba(255, 255, 255, 0.05);
-            --border-color: #444444;
-            --switch-bg: #555;
-            --switch-slider: #ccc;
+            --header-bg: rgba(30, 30, 30, 0.8);
         }
 
-        /* General Styles */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: var(--primary-color);
+            background-color: var(--bg-color);
             color: var(--text-color);
             transition: background-color 0.3s, color 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+        
+        body::before {
+            content: 'JOBS SM STUDIO';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-25deg);
+            font-size: 12vw;
+            font-weight: 700;
+            color: var(--watermark-color);
+            z-index: -1;
+            pointer-events: none;
+            transition: color 0.3s;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        a {
-            color: var(--link-color);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: #0056b3;
-        }
-
-        body.dark-mode a:hover {
-            color: #8ec9f9;
-        }
-
-        /* Header & Navigation */
+        /* --- Header & Navigation --- */
         .header {
             background-color: var(--header-bg);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
-            padding: 10px 0;
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
             transition: background-color 0.3s, border-color 0.3s;
         }
-
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
         .logo img {
-            height: 50px;
+            height: 45px;
+            vertical-align: middle;
         }
-
+        .nav-menu {
+            display: flex;
+            align-items: center;
+        }
         .nav-links {
             list-style: none;
             margin: 0;
             padding: 0;
             display: flex;
         }
-
-        .nav-links li {
-            margin-left: 25px;
-        }
-
+        .nav-links li { margin: 0 15px; }
         .nav-links a {
-            font-weight: bold;
-            font-size: 16px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
         }
-
-        /* Theme Toggle Switch */
-        .theme-switch-wrapper {
-            display: flex;
-            align-items: center;
-            margin-left: 30px;
-        }
-
+        .nav-links a:hover { color: var(--link-color); }
+        
+        /* --- Theme Toggle Switch --- */
         .theme-switch {
             display: inline-block;
             height: 24px;
             position: relative;
             width: 50px;
+            margin-left: 20px;
         }
-
-        .theme-switch input {
-            display: none;
-        }
-
+        .theme-switch input { display: none; }
         .slider {
-            background-color: var(--switch-bg);
+            background-color: #ccc;
             bottom: 0;
             cursor: pointer;
             left: 0;
@@ -130,9 +130,8 @@
             transition: .4s;
             border-radius: 34px;
         }
-
         .slider:before {
-            background-color: var(--switch-slider);
+            background-color: white;
             bottom: 4px;
             content: "";
             height: 16px;
@@ -142,80 +141,109 @@
             width: 16px;
             border-radius: 50%;
         }
+        input:checked + .slider { background-color: var(--link-color); }
+        input:checked + .slider:before { transform: translateX(26px); }
 
-        input:checked + .slider {
-            background-color: var(--link-color);
+        /* --- General Section Styling --- */
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--secondary-bg);
+            margin: 20px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
         }
-
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
-
-        /* Main Content with Watermark */
-        .main-content {
-            position: relative;
-            min-height: 70vh; /* Minimum height */
-            padding: 40px 0;
-            overflow: hidden; /* Hide overflowing pseudo-element */
-        }
-
-        .main-content::before {
-            content: 'JOBS SM STUDIO';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-20deg);
-            font-size: 10vw; /* Responsive font size */
-            font-weight: bold;
-            color: var(--watermark-color);
-            z-index: -1; /* Place it behind content */
-            pointer-events: none; /* Make it non-interactive */
-            transition: color 0.3s;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--footer-bg);
-            color: var(--footer-text-color);
-            padding: 20px 0;
+        .section h2 {
             text-align: center;
-            transition: background-color 0.3s, color 0.3s;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--heading-color);
+        }
+        .section h2 i {
+            margin-right: 10px;
+            color: var(--link-color);
         }
 
+        /* --- Latest Jobs Section --- */
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .job-card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .job-card h3 { margin-top: 0; }
+        .job-card p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+        }
+        .job-card .company { font-weight: 600; }
+        .btn {
+            display: inline-block;
+            background-color: var(--link-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 15px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        .btn:hover { background-color: var(--link-hover-color); }
+        
+        /* --- Contact Form --- */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background: var(--secondary-bg);
+            color: var(--text-color);
+            text-align: center;
+            padding: 30px 0;
+            margin: 20px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
         .footer-links {
             list-style: none;
             padding: 0;
-            margin: 10px 0;
+            margin: 0 0 15px 0;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap; /* Links will wrap on smaller screens */
+            flex-wrap: wrap;
         }
-
-        .footer-links li {
-            margin: 5px 15px;
-        }
-
+        .footer-links li { margin: 5px 15px; }
         .footer-links a {
-            color: var(--footer-text-color);
+            color: var(--text-color);
+            text-decoration: none;
         }
-
-        .copyright {
-            margin-top: 15px;
-            font-size: 14px;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none; /* Hide nav links on mobile, you can implement a burger menu later */
-            }
-            .navbar {
-                justify-content: space-between;
-            }
-            .main-content::before{
-                font-size: 18vw;
-            }
-        }
+         .footer-links a:hover { color: var(--link-color); }
 
     </style>
 </head>
@@ -224,69 +252,148 @@
     <!-- Header Section -->
     <header class="header">
         <div class="container navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <!-- Agar logo nahi hai, to ye text dikhega -->
-                    <img src="logo.png" alt="Jobs SM Studio Logo">
-                </a>
-            </div>
-            <nav>
+            <a href="#" class="logo">
+                <img src="logo.png" alt="Jobs SM Studio Logo">
+            </a>
+            <div class="nav-menu">
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#latest-jobs">Latest Jobs</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="#privacy">Privacy Policy</a></li>
-                    <li><a href="#disclaimer">Disclaimer</a></li>
-                    <li><a href="#terms">Terms</a></li>
-                    <li><a href="#copyright">Copyright</a></li>
                 </ul>
-            </nav>
-             <!-- Theme Switcher -->
-            <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox" />
-                    <div class="slider round"></div>
+                <label class="theme-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider"></span>
                 </label>
             </div>
         </div>
     </header>
 
-    <!-- Main Content Section -->
-    <main class="main-content" id="home">
-        <div class="container">
-            <h1>Welcome to Jobs SM Studio</h1>
-            <p>Your one-stop destination for the latest job openings.</p>
-            <p>Yahan aap apni website ka ahem content daal sakte hain. Jobs ki listings, company ke baare mein maloomat, etc.</p>
-            <!-- Add more sections here -->
-        </div>
+    <main>
+        <!-- Home Section (Hero) -->
+        <section id="home" class="section">
+            <div class="container" style="text-align: center;">
+                <h1 style="font-size: 3rem; color: var(--heading-color);">Find Your Next Opportunity</h1>
+                <p style="font-size: 1.2rem;">SM Studio par Pakistan bhar mein hazaron jobs talaash karein.</p>
+                <a href="#latest-jobs" class="btn">Browse Jobs</a>
+            </div>
+        </section>
+
+        <!-- Latest Jobs Section -->
+        <section id="latest-jobs" class="section">
+            <div class="container">
+                <h2><i class="fas fa-briefcase"></i>Latest Jobs</h2>
+                <div class="jobs-grid">
+                    <!-- Job Card 1 (Sample) -->
+                    <div class="job-card">
+                        <h3>Graphic Designer</h3>
+                        <p class="company">Creative Solutions Inc.</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Karachi, Pakistan</p>
+                        <a href="#" class="btn">Apply Now</a>
+                    </div>
+                    <!-- Job Card 2 (Sample) -->
+                    <div class="job-card">
+                        <h3>Web Developer (React)</h3>
+                        <p class="company">Tech Innovators</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Lahore, Pakistan</p>
+                        <a href="#" class="btn">Apply Now</a>
+                    </div>
+                    <!-- Job Card 3 (Sample) -->
+                    <div class="job-card">
+                        <h3>Content Writer</h3>
+                        <p class="company">Digital Marketing World</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Remote</p>
+                        <a href="#" class="btn">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2><i class="fas fa-info-circle"></i>About Us</h2>
+                <p>
+                    **YAHAN APNI COMPANY KE BAARE MEIN LIKHEIN.**
+                    Jobs SM Studio Pakistan mein job talaash karne walon ke liye ek behtareen platform hai. Hamara maqsad companies aur professionals ke darmiyan faasle ko kam karna hai. Hum rozana ki buniyad par aassani se apply karne ke liye nayi jobs shaamil karte hain.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2><i class="fas fa-envelope"></i>Contact Us</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Privacy Policy Section -->
+        <section id="privacy-policy" class="section">
+            <div class="container">
+                <h2><i class="fas fa-user-secret"></i>Privacy Policy</h2>
+                <p>
+                    **YAHAN APNI PRIVACY POLICY LIKHEIN.**
+                    Sample: Hum aapki privacy ka ehtaram karte hain. Aapki faraham karda maloomat jaise naam aur email sirf aapse raabta karne ke liye istemal ki jayegi. Hum aapki ijazat ke bagair yeh maloomat kisi teesre fareeq ko faraham nahi karenge.
+                </p>
+            </div>
+        </section>
+
+        <!-- Disclaimer Section -->
+        <section id="disclaimer" class="section">
+            <div class="container">
+                <h2><i class="fas fa-exclamation-triangle"></i>Disclaimer</h2>
+                 <p>
+                    **YAHAN APNA DISCLAIMER LIKHEIN.**
+                    Sample: Jobs SM Studio par di gayi jobs ki maloomat mukhtalif ذرائع se li jati hain. Hum har job ki tasdeeq ki koshish karte hain, lekin umeedwaron ko mashwara diya jata hai ke woh kisi bhi company mein apply karne se pehle apni tehqeeq kar lein.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Terms Section -->
+        <section id="terms" class="section">
+             <div class="container">
+                <h2><i class="fas fa-file-contract"></i>Terms & Conditions</h2>
+                <p>
+                    **YAHAN APNI TERMS & CONDITIONS LIKHEIN.**
+                    Sample: Is website ko istemal karke aap hamari sharait o zawabit se ittefaq karte hain. Website par mojood tamam mawaad (content) Jobs SM Studio ki milkiyat hai. Iska ghair qanooni istemal mana hai.
+                </p>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer Section -->
-    <footer class="footer">
+    <footer id="copyright" class="footer">
         <div class="container">
             <ul class="footer-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#latest-jobs">Latest Jobs</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#privacy-policy">Privacy Policy</a></li>
                 <li><a href="#disclaimer">Disclaimer</a></li>
                 <li><a href="#terms">Terms</a></li>
-                <li><a href="#copyright">Copyright</a></li>
             </ul>
-            <div class="copyright">
-                &copy; 2024 Jobs SM Studio. All Rights Reserved.
-            </div>
+            <p>&copy; 2024 Jobs SM Studio. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Theme Toggle -->
     <script>
-        const toggleSwitch = document.querySelector('#checkbox');
+        const toggleSwitch = document.querySelector('#theme-toggle');
         const currentTheme = localStorage.getItem('theme');
 
-        // Check for saved theme in localStorage
         if (currentTheme) {
             document.body.classList.add(currentTheme);
             if (currentTheme === 'dark-mode') {
@@ -294,20 +401,17 @@
             }
         }
 
-        // Function to switch theme
         function switchTheme(e) {
             if (e.target.checked) {
                 document.body.classList.add('dark-mode');
-                localStorage.setItem('theme', 'dark-mode'); // Save theme to localStorage
+                localStorage.setItem('theme', 'dark-mode');
             } else {
                 document.body.classList.remove('dark-mode');
-                localStorage.setItem('theme', 'light-mode'); // Save theme to localStorage
+                localStorage.setItem('theme', 'light-mode');
             }
         }
 
-        // Event listener for the toggle switch
         toggleSwitch.addEventListener('change', switchTheme, false);
     </script>
-
 </body>
 </html>
