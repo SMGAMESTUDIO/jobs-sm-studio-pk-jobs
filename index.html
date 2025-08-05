@@ -1,168 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jobs SM Studio</title>
-    <!-- Bootstrap CSS for professional look -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts for a nice font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jobs SM Studio</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet"/>
 
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-            position: relative; /* Needed for watermark positioning */
-        }
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      position: relative;
+    }
 
-        /* Watermark Style */
-        body::after {
-            content: 'JOBS SM STUDIO';
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 5rem; /* Adjust size as needed */
-            font-weight: 900;
-            color: rgba(0, 0, 0, 0.04); /* Light color for the watermark */
-            z-index: -1; /* Puts the watermark behind the content */
-            pointer-events: none; /* Makes the watermark non-interactive */
-            text-align: center;
-            width: 100%;
-        }
+    /* Watermark */
+    body::after {
+      content: 'JOBS SM STUDIO';
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 5rem;
+      font-weight: 900;
+      color: rgba(0, 0, 0, 0.04);
+      z-index: -1;
+      pointer-events: none;
+      text-align: center;
+      width: 100%;
+    }
 
-        .navbar-brand img {
-            height: 40px; /* Adjust your logo height if needed */
-        }
-        .hero-section {
-            background: linear-gradient(90deg, #4b6cb7, #182848);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-        .job-card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: transform .3s, box-shadow .3s;
-        }
-        .job-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-        }
-        .footer {
-            background-color: #212529;
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-        .btn-contact {
-            background-color: #198754;
-            color: white;
-            font-weight: bold;
-            border-radius: 50px;
-            padding: 10px 30px;
-            transition: background-color .3s;
-        }
-        .btn-contact:hover {
-            background-color: #157347;
-            color: white;
-        }
-    </style>
+    .navbar-brand img {
+      height: 50px; /* 👈 Adjust logo display height */
+    }
+
+    .hero-section {
+      background: linear-gradient(90deg, #4b6cb7, #182848);
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .job-card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .job-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .footer {
+      background-color: #212529;
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .btn-contact {
+      background-color: #198754;
+      color: white;
+      font-weight: bold;
+      border-radius: 50px;
+      padding: 10px 30px;
+      transition: background-color 0.3s;
+    }
+
+    .btn-contact:hover {
+      background-color: #157347;
+      color: white;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container">
-            <!-- LOGO: This now points to your logo file -->
-            <a class="navbar-brand" href="#">
-                <img src="logo.png" alt="Jobs SM Studio Logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Jobs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <!-- ✅ Use a wide logo here (400x200 recommended) -->
+        <img src="logo.png" alt="Jobs SM Studio Logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Jobs</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Hero Section for Search -->
-    <header class="hero-section">
-        <div class="container">
-            <h1 class="display-4">Find Your Dream Job</h1>
-            <p class="lead">Start your career with thousands of opportunities.</p>
-            <form class="d-flex justify-content-center mt-4">
-                <input class="form-control me-2 w-50" type="search" placeholder="Enter job title or keyword" aria-label="Search">
-                <button class="btn btn-light" type="submit">Search</button>
-            </form>
-        </div>
-    </header>
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="container">
+      <h1 class="display-4">Find Your Dream Job</h1>
+      <p class="lead">Start your career with thousands of opportunities.</p>
+      <form class="d-flex justify-content-center mt-4">
+        <input class="form-control me-2 w-50" type="search" placeholder="Enter job title or keyword"/>
+        <button class="btn btn-light" type="submit">Search</button>
+      </form>
+    </div>
+  </header>
 
-    <!-- Job Listings Section -->
-    <main class="container my-5">
-        <h2 class="text-center mb-4">Latest Job Openings</h2>
-        <div class="row" id="jobs-list">
-            <!-- Jobs from Firebase will be loaded here -->
-            <!-- Example Job Card -->
-            <div class="col-md-4 mb-4">
-                <div class="card job-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Software Engineer</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Tech Company, Lahore</h6>
-                        <p class="card-text">We are looking for an experienced Software Engineer to join our dynamic team.</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Example Job Card -->
-            <div class="col-md-4 mb-4">
-                <div class="card job-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Graphic Designer</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Design Studio, Karachi</h6>
-                        <p class="card-text">A creative Graphic Designer is needed to work on our exciting new projects.</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Example Job Card -->
-            <div class="col-md-4 mb-4">
-                <div class="card job-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Digital Marketing Manager</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Marketing Agency, Islamabad</h6>
-                        <p class="card-text">We need an expert Digital Marketing Manager to lead our marketing team.</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+  <!-- Job Listings -->
+  <main class="container my-5">
+    <h2 class="text-center mb-4">Latest Job Openings</h2>
+    <div class="row" id="jobs-list">
 
-    <!-- Footer and Contact Button -->
-    <footer class="footer">
-        <div class="container">
-            <p>Copyright © 2025 - Jobs SM Studio</p>
-            <p>For any questions or support, feel free to reach out.</p>
-            <!-- This button will open the user's email client -->
-            <a href="mailto:smgamingstudioofficial@gmail.com" class="btn btn-contact mt-2">Contact Us</a>
+      <!-- Job 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card job-card">
+          <div class="card-body">
+            <h5 class="card-title">Software Engineer</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Tech Company, Lahore</h6>
+            <p class="card-text">We are looking for an experienced Software Engineer to join our team.</p>
+            <a href="#" class="btn btn-primary">View Details</a>
+          </div>
         </div>
-    </footer>
+      </div>
 
-    <!-- Bootstrap JS (for dropdowns, etc.) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <!-- Job 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card job-card">
+          <div class="card-body">
+            <h5 class="card-title">Graphic Designer</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Design Studio, Karachi</h6>
+            <p class="card-text">A creative Graphic Designer is needed for our new projects.</p>
+            <a href="#" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Job 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="card job-card">
+          <div class="card-body">
+            <h5 class="card-title">Digital Marketing Manager</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Marketing Agency, Islamabad</h6>
+            <p class="card-text">We need a Digital Marketing Manager to lead our marketing team.</p>
+            <a href="#" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Copyright © 2025 - Jobs SM Studio</p>
+      <p>For any questions or support, feel free to reach out.</p>
+      <a href="mailto:smgamingstudioofficial@gmail.com" class="btn btn-contact mt-2">Contact Us</a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
