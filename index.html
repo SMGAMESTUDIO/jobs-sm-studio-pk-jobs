@@ -1,170 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Privacy Policy - JOB'S SM STUDIO</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg-light: #f8f9fa;
-      --bg-dark: #212529;
-      --text-light: #000;
-      --text-dark: #fff;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs SM Studio - Find Your Dream Job</title>
+    <style>
+        /* CSS Variables for theming */
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #f4f4f9;
+            --text-color: #333333;
+            --header-bg: #ffffff;
+            --footer-bg: #333333;
+            --footer-text-color: #ffffff;
+            --link-color: #007bff;
+            --watermark-color: rgba(0, 0, 0, 0.05);
+            --border-color: #dddddd;
+            --switch-bg: #ccc;
+            --switch-slider: white;
+        }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-light);
-      transition: background 0.3s, color 0.3s;
-      margin: 0;
-      padding: 0;
-    }
+        body.dark-mode {
+            --primary-color: #121212;
+            --secondary-color: #1e1e1e;
+            --text-color: #e0e0e0;
+            --header-bg: #1e1e1e;
+            --footer-bg: #1e1e1e;
+            --footer-text-color: #e0e0e0;
+            --link-color: #4dabf7;
+            --watermark-color: rgba(255, 255, 255, 0.05);
+            --border-color: #444444;
+            --switch-bg: #555;
+            --switch-slider: #ccc;
+        }
 
-    body.dark-mode {
-      background-color: var(--bg-dark);
-      color: var(--text-dark);
-    }
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
 
-    body::after {
-      content: "JOB'S SM STUDIO";
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 4rem;
-      font-weight: 900;
-      color: rgba(0, 0, 0, 0.03);
-      pointer-events: none;
-      z-index: 0;
-      text-align: center;
-      width: 100%;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    body.dark-mode::after {
-      color: rgba(255, 255, 255, 0.03);
-    }
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-    .toggle-btn {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      z-index: 999;
-    }
+        a:hover {
+            color: #0056b3;
+        }
 
-    nav {
-      background-color: #e9ecef;
-      padding: 10px 0;
-      text-align: center;
-    }
+        body.dark-mode a:hover {
+            color: #8ec9f9;
+        }
 
-    body.dark-mode nav {
-      background-color: #343a40;
-    }
+        /* Header & Navigation */
+        .header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
 
-    nav a {
-      margin: 0 10px;
-      font-weight: 500;
-      color: #007bff;
-      text-decoration: none;
-    }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+        .logo img {
+            height: 50px;
+        }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 30px 15px;
-      position: relative;
-      z-index: 1;
-    }
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
 
-    .footer {
-      background-color: #212529;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      margin-top: 40px;
-    }
-  </style>
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Theme Toggle Switch */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            margin-left: 30px;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 24px;
+            position: relative;
+            width: 50px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: var(--switch-bg);
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            background-color: var(--switch-slider);
+            bottom: 4px;
+            content: "";
+            height: 16px;
+            left: 4px;
+            position: absolute;
+            transition: .4s;
+            width: 16px;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--link-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Main Content with Watermark */
+        .main-content {
+            position: relative;
+            min-height: 70vh; /* Minimum height */
+            padding: 40px 0;
+            overflow: hidden; /* Hide overflowing pseudo-element */
+        }
+
+        .main-content::before {
+            content: 'JOBS SM STUDIO';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-20deg);
+            font-size: 10vw; /* Responsive font size */
+            font-weight: bold;
+            color: var(--watermark-color);
+            z-index: -1; /* Place it behind content */
+            pointer-events: none; /* Make it non-interactive */
+            transition: color 0.3s;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text-color);
+            padding: 20px 0;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Links will wrap on smaller screens */
+        }
+
+        .footer-links li {
+            margin: 5px 15px;
+        }
+
+        .footer-links a {
+            color: var(--footer-text-color);
+        }
+
+        .copyright {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide nav links on mobile, you can implement a burger menu later */
+            }
+            .navbar {
+                justify-content: space-between;
+            }
+            .main-content::before{
+                font-size: 18vw;
+            }
+        }
+
+    </style>
 </head>
 <body>
 
-  <button class="btn btn-secondary toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <!-- Agar logo nahi hai, to ye text dikhega -->
+                    <img src="logo.png" alt="Jobs SM Studio Logo">
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#latest-jobs">Latest Jobs</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#disclaimer">Disclaimer</a></li>
+                    <li><a href="#terms">Terms</a></li>
+                    <li><a href="#copyright">Copyright</a></li>
+                </ul>
+            </nav>
+             <!-- Theme Switcher -->
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+    </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="jobs.html">Latest Jobs</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="privacy-policy.html">Privacy Policy</a>
-    <a href="disclaimer.html">Disclaimer</a>
-    <a href="terms.html">Terms</a>
-    <a href="copyright.html">Copyright</a>
-  </nav>
+    <!-- Main Content Section -->
+    <main class="main-content" id="home">
+        <div class="container">
+            <h1>Welcome to Jobs SM Studio</h1>
+            <p>Your one-stop destination for the latest job openings.</p>
+            <p>Yahan aap apni website ka ahem content daal sakte hain. Jobs ki listings, company ke baare mein maloomat, etc.</p>
+            <!-- Add more sections here -->
+        </div>
+    </main>
 
-  <div class="container">
-    <h1>Privacy Policy</h1>
-    <p>
-      At JOB'S SM STUDIO, your privacy is extremely important to us. This Privacy Policy outlines the types of personal information we collect and how we use, disclose, and safeguard that information.
-    </p>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#latest-jobs">Latest Jobs</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#disclaimer">Disclaimer</a></li>
+                <li><a href="#terms">Terms</a></li>
+                <li><a href="#copyright">Copyright</a></li>
+            </ul>
+            <div class="copyright">
+                &copy; 2024 Jobs SM Studio. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
 
-    <h2>Information We Collect</h2>
-    <ul>
-      <li>Basic analytics (IP address, browser type, and pages visited)</li>
-      <li>Information voluntarily provided via contact or job forms</li>
-    </ul>
+    <!-- JavaScript for Theme Toggle -->
+    <script>
+        const toggleSwitch = document.querySelector('#checkbox');
+        const currentTheme = localStorage.getItem('theme');
 
-    <h2>Use of Information</h2>
-    <p>
-      The collected information is used to improve website performance, provide job listings, and respond to inquiries. We do not sell or share personal data without your explicit consent.
-    </p>
+        // Check for saved theme in localStorage
+        if (currentTheme) {
+            document.body.classList.add(currentTheme);
+            if (currentTheme === 'dark-mode') {
+                toggleSwitch.checked = true;
+            }
+        }
 
-    <h2>Cookies</h2>
-    <p>
-      We use cookies to enhance your browsing experience. By using our website, you agree to our use of cookies.
-    </p>
+        // Function to switch theme
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark-mode'); // Save theme to localStorage
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light-mode'); // Save theme to localStorage
+            }
+        }
 
-    <h2>Data Security</h2>
-    <p>
-      We take appropriate security measures to protect your information from unauthorized access, alteration, or disclosure.
-    </p>
+        // Event listener for the toggle switch
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
 
-    <h2>Changes to Policy</h2>
-    <p>
-      We may update this policy occasionally. Any changes will be reflected on this page with the updated date.
-    </p>
-
-    <p>
-      If you have any questions about our privacy practices, feel free to contact us through our contact form.
-    </p>
-  </div>
-
-  <div class="footer">
-    &copy; 2025 JOB'S SM STUDIO. All rights reserved.
-  </div>
-
-  <script>
-    function toggleTheme() {
-      document.body.classList.toggle('dark-mode');
-    }
-  </script>
-</body>
-</html>    <p>By using our site, you consent to cookies and general browser/IP data.</p>
-  </div>
-
-  <div class="footer">
-    &copy; 2025 JOB'S SM STUDIO. All rights reserved.
-  </div>
-
-  <script>
-    function toggleTheme() {
-      document.body.classList.toggle('dark-mode');
-    }
-  </script>
 </body>
 </html>
