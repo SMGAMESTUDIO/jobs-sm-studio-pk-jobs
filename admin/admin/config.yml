@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: username/job-website
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "jobs"
+    label: "Jobs"
+    folder: "jobs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Job Title", name: "title", widget: "string" }
+      - { label: "Company", name: "company", widget: "string" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Job Type", name: "jobtype", widget: "select", options: ["Full-Time", "Part-Time", "Remote", "Contract"] }
+      - { label: "Description", name: "body", widget: "markdown" }
